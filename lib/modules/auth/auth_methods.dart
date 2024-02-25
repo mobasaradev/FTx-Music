@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ftx_music/common/common.dart';
 import 'package:ftx_music/utils/utils.dart';
@@ -12,47 +13,50 @@ class AuthMethodPage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(ImageManager.background),
-            fit: BoxFit.cover,
-          ),
-        ),
+        decoration: BoxDecoration(gradient: customGradient()),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              50.y,
-              SizedBox(
-                width: 180,
-                child: SvgPicture.asset(
-                  SvgManager.appLogo,
+              Container(
+                width: 74.w,
+                height: 74.h,
+                decoration: BoxDecoration(
+                  color: AppColors.secondary,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 8.0,
+                      color: AppColors.lightPrimary.withOpacity(.6),
+                      offset: const Offset(3, 4),
+                    )
+                  ],
                 ),
+                child: SvgPicture.asset(SvgManager.logo),
               ),
               30.y,
               CustomText(
-                text: 'Welcome to Vii Music'.toUpperCase(),
+                text: 'Welcome to FTx Music'.toUpperCase(),
                 style: AppTextTheme.textTheme.displaySmall
-                    ?.copyWith(color: AppColors.headerText),
+                    ?.copyWith(color: AppColors.blueColor),
               ),
               24.y,
               CustomText(
                 text: 'Create your account'.toUpperCase(),
                 style: AppTextTheme.textTheme.displayMedium,
               ),
-              8.y,
+              4.y,
               CustomText(
                 text: 'It\'s Totally Free',
-                style: AppTextTheme.textTheme.headlineLarge
-                    ?.copyWith(color: AppColors.primary),
+                style: AppTextTheme.textTheme.headlineLarge,
               ),
               20.y,
               CustomButton(
                 title: 'Sign up'.toUpperCase(),
                 borderRadius: 8,
-                isBorder: true,
-                isGradient: true,
+                textColor: AppColors.secondary,
+                // isBorder: true,
               ),
               20.y,
               Padding(
@@ -61,7 +65,7 @@ class AuthMethodPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Divider(
-                        color: AppColors.primary.withOpacity(0.5),
+                        color: AppColors.white.withOpacity(0.5),
                       ),
                     ),
                     Padding(
@@ -74,7 +78,7 @@ class AuthMethodPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: Divider(
-                        color: AppColors.primary.withOpacity(0.5),
+                        color: AppColors.white.withOpacity(0.5),
                       ),
                     ),
                   ],

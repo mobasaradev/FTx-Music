@@ -35,10 +35,10 @@ class SplashPage extends StatelessWidget {
             ),
             4.y,
             CustomText(
-              text: 'Listen to Vii Music',
+              text: 'Listen to FTx Music',
               textAlign: TextAlign.center,
               style: AppTextTheme.textTheme.displaySmall?.copyWith(
-                color: AppColors.headerText,
+                color: AppColors.yellow,
               ),
             ),
           ],

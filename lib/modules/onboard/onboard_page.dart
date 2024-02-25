@@ -27,7 +27,7 @@ class _OnboardPageState extends State<OnboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.headerText.withOpacity(0.165),
+      backgroundColor: AppColors.secondary,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(

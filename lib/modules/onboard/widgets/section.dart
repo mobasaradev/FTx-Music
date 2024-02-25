@@ -41,6 +41,7 @@ class Section extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: customGradient(),
                 borderRadius: BorderRadius.circular(4),
+                border: Border.all(width: 1, color: AppColors.lightPrimary),
               ),
               child: Center(
                 child: CustomText(
