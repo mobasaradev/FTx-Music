@@ -5,8 +5,8 @@ import 'utils.dart';
 LinearGradient customGradient() {
   return const LinearGradient(
     colors: [
-      AppColors.primary,
       AppColors.secondary,
+      AppColors.primary,
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

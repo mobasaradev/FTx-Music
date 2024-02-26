@@ -12,7 +12,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 3),
       () => Navigator.pushReplacementNamed(context, RouteName.onboard),
     );
     return Scaffold(

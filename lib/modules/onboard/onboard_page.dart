@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ftx_music/route/route_name.dart';
 import 'package:ftx_music/utils/utils.dart';
 
@@ -27,42 +28,44 @@ class _OnboardPageState extends State<OnboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.secondary,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: titles.length,
-                onPageChanged: (int page) {
-                  setState(() {
-                    _currentPage = page;
-                  });
-                },
-                itemBuilder: (context, index) {
-                  return Section(
-                    image: images[index],
-                    title: titles[index],
-                    onTap: () {
-                      if (_currentPage == images.length - 1) {
-                        Navigator.pushReplacementNamed(
-                            context, RouteName.authMethod);
-                      } else {
-                        _pageController.nextPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeInOut,
-                        );
-                      }
-                    },
-                    buttonTitle:
-                        _currentPage == images.length - 1 ? 'Start' : 'Next',
-                  );
-                },
+      body: Container(
+        decoration: BoxDecoration(gradient: customGradient()),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: titles.length,
+                  onPageChanged: (int page) {
+                    setState(() {
+                      _currentPage = page;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return Section(
+                      image: images[index],
+                      title: titles[index],
+                      onTap: () {
+                        if (_currentPage == images.length - 1) {
+                          Navigator.pushReplacementNamed(
+                              context, RouteName.authMethod);
+                        } else {
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeInOut,
+                          );
+                        }
+                      },
+                      buttonTitle:
+                          _currentPage == images.length - 1 ? 'Start' : 'Next',
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

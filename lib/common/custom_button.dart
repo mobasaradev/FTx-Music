@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../utils/utils.dart';
-
 
 class CustomButton extends StatelessWidget {
   final void Function()? onTap;
@@ -13,6 +14,7 @@ class CustomButton extends StatelessWidget {
   final double? borderRadius;
   final Color? borderColor;
   final Color? textColor;
+  final Color? backgroundColor;
   final double? fontSize;
   final FontWeight? fontWeight;
   final bool? isLoading;
@@ -41,6 +43,7 @@ class CustomButton extends StatelessWidget {
     this.loadingIndicatorColor,
     this.isGradient,
     this.svgIcon,
+    this.backgroundColor,
   });
 
   @override
@@ -55,16 +58,15 @@ class CustomButton extends StatelessWidget {
           color: isBorder == true || isGradient == true
               ? null
               : isSoft == true
-                  ? Theme.of(context).primaryColor.withOpacity(.2)
-                  : Theme.of(context).primaryColor,
+                  ? AppColors.white.withOpacity(.2)
+                  : backgroundColor,
           border: isBorder == true
               ? Border.all(
-                  color: borderColor ??
-                      Theme.of(context).colorScheme.primary.withOpacity(0.2),
-                  width: 1.5,
+                  color: borderColor ?? AppColors.primary.withOpacity(0.2),
+                  width: 1.5.w,
                 )
               : null,
-          borderRadius: BorderRadius.circular(borderRadius ?? 50),
+          borderRadius: BorderRadius.circular(borderRadius ?? 50.r),
         ),
         child: isLoading == true
             ? Padding(
@@ -73,28 +75,22 @@ class CustomButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 25,
-                      width: 25,
+                      height: 25.h,
+                      width: 25.w,
                       child: CircularProgressIndicator(
-                        color: loadingIndicatorColor ??
-                            Theme.of(context).scaffoldBackgroundColor,
+                        color: loadingIndicatorColor ?? AppColors.white,
                       ),
                     ),
-                    const SizedBox(
-                      width: 15,
-                    ),
+                    15.x,
                     Text(
                       'Loading...',
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            color: isBorder == true
-                                ? Theme.of(context).colorScheme.primary
-                                : isSoft == true
-                                    ? textColor ??
-                                        Theme.of(context).primaryColor
-                                    : textColor ??
-                                        Theme.of(context)
-                                            .scaffoldBackgroundColor,
-                          ),
+                      style: AppTextTheme.textTheme.headlineLarge?.copyWith(
+                        color: isBorder == true
+                            ? AppColors.primary
+                            : isSoft == true
+                                ? textColor ?? AppColors.primary
+                                : textColor ?? AppColors.white,
+                      ),
                     ),
                   ],
                 ),
@@ -107,30 +103,21 @@ class CustomButton extends StatelessWidget {
                       children: [
                         Text(
                           title ?? '',
-                          style:
-                              Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: isBorder == true
-                                        ? Theme.of(context)
-                                            .primaryColorDark
-                                            .withOpacity(0.2)
-                                        : isSoft == true
-                                            ? textColor ??
-                                                Theme.of(context).primaryColor
-                                            : textColor ??
-                                                Theme.of(context)
-                                                    .scaffoldBackgroundColor,
-                                  ),
+                          style: AppTextTheme.textTheme.headlineLarge?.copyWith(
+                            color: isBorder == true
+                                ? AppColors.primary.withOpacity(0.2)
+                                : isSoft == true
+                                    ? textColor ?? AppColors.primary
+                                    : textColor ?? AppColors.primary,
+                          ),
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
+                        10.x,
                         SizedBox(
-                          height: 25,
-                          width: 25,
+                          height: 25.h,
+                          width: 25.w,
                           child: Icon(
                             buttonIcon,
-                            color: iconsColor ??
-                                Theme.of(context).scaffoldBackgroundColor,
+                            color: iconsColor ?? AppColors.black,
                           ),
                         ),
                       ],
@@ -143,29 +130,22 @@ class CustomButton extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
-                              height: 25,
-                              width: 25,
+                              height: 25.h,
+                              width: 25.w,
                               child: Icon(
                                 leadingIcon,
-                                color: iconsColor ??
-                                    Theme.of(context).scaffoldBackgroundColor,
+                                color: iconsColor ?? AppColors.black,
                               ),
                             ),
                             Text(
                               title ?? '',
                               style: TextStyle(
                                 color: isBorder == true
-                                    ? Theme.of(context)
-                                        .colorScheme
-                                        .primary
-                                        .withOpacity(0.2)
+                                    ? AppColors.primary.withOpacity(0.2)
                                     : isSoft == true
-                                        ? textColor ??
-                                            Theme.of(context).primaryColor
-                                        : textColor ??
-                                            Theme.of(context)
-                                                .scaffoldBackgroundColor,
-                                fontSize: fontSize ?? 17,
+                                        ? textColor ?? AppColors.primary
+                                        : textColor ?? AppColors.black,
+                                fontSize: fontSize ?? 17.sp,
                                 fontWeight: fontWeight ?? FontWeight.w600,
                               ),
                             ),
@@ -175,60 +155,49 @@ class CustomButton extends StatelessWidget {
                       )
                     : svgIcon != null
                         ? Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 15,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 15.w,
+                              vertical: 15.h,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Image.asset(
+                                SvgPicture.asset(
                                   svgIcon!,
-                                  width: 25,
-                                  height: 25,
+                                  width: 25.w,
+                                  height: 25.h,
                                 ),
-                                SizedBox(width: title == '' ? 0 : 10),
+                                title == '' ? 0.x : 10.x,
                                 Text(
                                   title ?? '',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall
+                                  style: AppTextTheme.textTheme.headlineLarge
                                       ?.copyWith(
-                                        color: isBorder == true
-                                            ? Theme.of(context).primaryColorDark
-                                            : isSoft == true
-                                                ? textColor ??
-                                                    Theme.of(context)
-                                                        .primaryColor
-                                                : textColor ??
-                                                    Theme.of(context)
-                                                        .scaffoldBackgroundColor,
-                                      ),
+                                    color: isBorder == true
+                                        ? AppColors.primary
+                                        : isSoft == true
+                                            ? textColor ?? AppColors.primary
+                                            : textColor ?? AppColors.black,
+                                  ),
                                 ),
                               ],
                             ),
                           )
                         : Center(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                                vertical: 15,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 15.w,
+                                vertical: 15.h,
                               ),
                               child: Text(
                                 title ?? '',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
+                                style: AppTextTheme.textTheme.headlineLarge
                                     ?.copyWith(
-                                      color: isBorder == true
-                                          ? Theme.of(context).primaryColorDark
-                                          : isSoft == true
-                                              ? textColor ??
-                                                  Theme.of(context).primaryColor
-                                              : textColor ??
-                                                  Theme.of(context)
-                                                      .scaffoldBackgroundColor,
-                                    ),
+                                  color: isBorder == true
+                                      ? AppColors.primary
+                                      : isSoft == true
+                                          ? textColor ?? AppColors.primary
+                                          : textColor ?? AppColors.black,
+                                ),
                               ),
                             ),
                           ),

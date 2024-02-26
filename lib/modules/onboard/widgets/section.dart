@@ -35,19 +35,19 @@ class Section extends StatelessWidget {
           child: GestureDetector(
             onTap: onTap,
             child: Container(
-              margin: const EdgeInsets.only(right: 4),
+              margin: EdgeInsets.only(right: 4.w),
               width: 70.w,
               height: 40.h,
               decoration: BoxDecoration(
-                gradient: customGradient(),
-                borderRadius: BorderRadius.circular(4),
-                border: Border.all(width: 1, color: AppColors.lightPrimary),
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(4.r),
               ),
               child: Center(
                 child: CustomText(
-                  text: buttonTitle,
+                  text: buttonTitle.toUpperCase(),
                   textAlign: TextAlign.center,
-                  style: AppTextTheme.textTheme.headlineLarge,
+                  style: AppTextTheme.textTheme.headlineLarge
+                      ?.copyWith(color: AppColors.black),
                 ),
               ),
             ),

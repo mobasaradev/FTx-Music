@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ftx_music/common/common.dart';
 import 'package:ftx_music/route/route_name.dart';
 import 'package:ftx_music/utils/utils.dart';
 
-class AuthMethodPage extends StatelessWidget {
-  const AuthMethodPage({super.key});
+import '../../../common/common.dart';
+
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,27 +23,34 @@ class AuthMethodPage extends StatelessWidget {
               customLogo(),
               10.y,
               CustomText(
-                text: 'Welcome to FTx Music'.toUpperCase(),
-                style: AppTextTheme.textTheme.displaySmall
-                    ?.copyWith(color: AppColors.blueColor),
-              ),
-              15.y,
-              CustomText(
                 text: 'Create your account'.toUpperCase(),
                 style: AppTextTheme.textTheme.displayMedium,
               ),
-              CustomText(
-                text: 'It\'s Totally Free',
-                style: AppTextTheme.textTheme.headlineLarge,
+              30.y,
+              const CustomTextField(
+                topLabel: 'Name',
+                hintText: 'Your Name',
+                keyboardType: TextInputType.name,
               ),
-              20.y,
+              12.y,
+              const CustomTextField(
+                topLabel: 'Email',
+                hintText: 'example@gmail.com',
+                keyboardType: TextInputType.emailAddress,
+              ),
+              12.y,
+              const CustomTextField(
+                topLabel: 'Password',
+                hintText: '******',
+                isSecured: true,
+              ),
+              30.y,
               CustomButton(
                 title: 'register'.toUpperCase(),
                 borderRadius: 8.r,
                 backgroundColor: AppColors.white,
-                onTap: () => Navigator.pushNamed(context, RouteName.register),
               ),
-              20.y,
+              15.y,
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.w),
                 child: Row(
@@ -55,7 +63,7 @@ class AuthMethodPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 15.w),
                       child: Text(
-                        'Already have an account?',
+                        'Or continue with',
                         style: AppTextTheme.textTheme.headlineMedium
                             ?.copyWith(color: AppColors.white.withOpacity(0.4)),
                       ),
@@ -68,14 +76,32 @@ class AuthMethodPage extends StatelessWidget {
                   ],
                 ),
               ),
+              15.y,
+              CustomButton(
+                title: 'Register with Google'.toUpperCase(),
+                svgIcon: SvgManager.google,
+                borderRadius: 8.r,
+                backgroundColor: AppColors.lightPrimary,
+              ),
               20.y,
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, RouteName.login),
-                child: CustomButton(
-                  title: 'login'.toUpperCase(),
-                  borderRadius: 8.r,
-                  backgroundColor: AppColors.lightPrimary,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: 'Already have an account? ',
+                    style: AppTextTheme.textTheme.headlineMedium,
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, RouteName.login),
+                    child: CustomText(
+                      text: ' login'.toUpperCase(),
+                      style: AppTextTheme.textTheme.headlineMedium?.copyWith(
+                        color: AppColors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
