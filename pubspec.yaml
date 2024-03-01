@@ -27,13 +27,11 @@ flutter:
     - assets/image/
 
   fonts:
-    - family: Poppins
+    - family: AvenirNext
       fonts:
-        - asset: assets/font/Poppins-Regular.ttf
-          weight: 400
-        - asset: assets/font/Poppins-Medium.ttf
+        - asset: assets/font/AvenirNextLTPro-Medium.otf
           weight: 500
-        - asset: assets/font/Poppins-SemiBold.ttf
+        - asset: assets/font/AvenirNextLTPro-Demi.otf
           weight: 600
-        - asset: assets/font/Poppins-Bold.ttf
+        - asset: assets/font/AvenirNextLTPro-Bold.otf
           weight: 700

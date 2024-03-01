@@ -8,50 +8,50 @@ class AppTextTheme {
 
   static TextTheme textTheme = TextTheme(
     displayLarge: TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'AvenirNext',
       color: AppColors.white,
-      fontSize: 30.sp,
+      fontSize: 28.sp,
       fontWeight: FontWeight.w700,
     ),
     displayMedium: TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'AvenirNext',
       color: AppColors.white,
-      fontSize: 27.sp,
+      fontSize: 20.sp,
       fontWeight: FontWeight.w600,
     ),
     displaySmall: TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'AvenirNext',
       color: AppColors.white,
-      fontSize: 24.sp,
+      fontSize: 17.sp,
       fontWeight: FontWeight.w600,
     ),
     headlineLarge: TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'AvenirNext',
       color: AppColors.white,
       fontSize: 16.sp,
       fontWeight: FontWeight.w400,
     ),
     headlineMedium: TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'AvenirNext',
       color: AppColors.white,
-      fontSize: 14.sp,
+      fontSize: 10.sp,
       fontWeight: FontWeight.w400,
     ),
-    // headlineSmall: TextStyle(
-    //   fontFamily: 'Poppins',
-    //   color: AppColors.white,
-    //   fontSize: 14.sp,
-    //   fontWeight: FontWeight.w400,
-    // ),
+    headlineSmall: TextStyle(
+      fontFamily: 'AvenirNext',
+      color: AppColors.white,
+      fontSize: 8.sp,
+      fontWeight: FontWeight.w400,
+    ),
     // bodyLarge: TextStyle(
-    //   fontFamily: 'Poppins',
+    //   fontFamily: 'AvenirNext',
     //   color: AppColors.white,
     //   fontSize: 12.sp,
     //   fontWeight: FontWeight.w400,
     // ),
 
     // bodySmall: TextStyle(
-    //   fontFamily: 'Poppins',
+    //   fontFamily: 'AvenirNext',
     //   color: AppColors.white,
     //   fontSize: 10.sp,
     //   fontWeight: FontWeight.w400,

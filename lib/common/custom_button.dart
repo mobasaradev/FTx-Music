@@ -54,11 +54,10 @@ class CustomButton extends StatelessWidget {
       child: Container(
         width: size.width * .9,
         decoration: BoxDecoration(
-          gradient: isGradient == true ? customGradient() : null,
-          color: isBorder == true || isGradient == true
-              ? null
+          color: isBorder == true
+              ? AppColors.transparent
               : isSoft == true
-                  ? AppColors.white.withOpacity(.2)
+                  ? AppColors.secondaryBlack
                   : backgroundColor,
           border: isBorder == true
               ? Border.all(
@@ -85,11 +84,7 @@ class CustomButton extends StatelessWidget {
                     Text(
                       'Loading...',
                       style: AppTextTheme.textTheme.headlineLarge?.copyWith(
-                        color: isBorder == true
-                            ? AppColors.primary
-                            : isSoft == true
-                                ? textColor ?? AppColors.primary
-                                : textColor ?? AppColors.white,
+                        color: loadingIndicatorColor ?? AppColors.white,
                       ),
                     ),
                   ],
@@ -105,10 +100,10 @@ class CustomButton extends StatelessWidget {
                           title ?? '',
                           style: AppTextTheme.textTheme.headlineLarge?.copyWith(
                             color: isBorder == true
-                                ? AppColors.primary.withOpacity(0.2)
+                                ? AppColors.white
                                 : isSoft == true
-                                    ? textColor ?? AppColors.primary
-                                    : textColor ?? AppColors.primary,
+                                    ? AppColors.black
+                                    : textColor,
                           ),
                         ),
                         10.x,
@@ -163,7 +158,7 @@ class CustomButton extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  svgIcon!,
+                                  svgIcon ?? SvgManager.logo,
                                   width: 25.w,
                                   height: 25.h,
                                 ),
@@ -173,10 +168,10 @@ class CustomButton extends StatelessWidget {
                                   style: AppTextTheme.textTheme.headlineLarge
                                       ?.copyWith(
                                     color: isBorder == true
-                                        ? AppColors.primary
+                                        ? AppColors.white
                                         : isSoft == true
-                                            ? textColor ?? AppColors.primary
-                                            : textColor ?? AppColors.black,
+                                            ? AppColors.black
+                                            : textColor,
                                   ),
                                 ),
                               ],
