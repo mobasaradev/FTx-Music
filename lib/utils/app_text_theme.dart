@@ -29,7 +29,7 @@ class AppTextTheme {
       fontFamily: 'AvenirNext',
       color: AppColors.white,
       fontSize: 16.sp,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.bold,
     ),
     headlineMedium: TextStyle(
       fontFamily: 'AvenirNext',

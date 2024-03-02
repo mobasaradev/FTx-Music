@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ftx_music/common/common.dart';
 
 import '../utils/utils.dart';
 
@@ -134,14 +134,13 @@ class CustomButton extends StatelessWidget {
                             ),
                             Text(
                               title ?? '',
-                              style: TextStyle(
+                              style: AppTextTheme.textTheme.headlineLarge
+                                  ?.copyWith(
                                 color: isBorder == true
-                                    ? AppColors.primary.withOpacity(0.2)
+                                    ? AppColors.white
                                     : isSoft == true
-                                        ? textColor ?? AppColors.primary
-                                        : textColor ?? AppColors.black,
-                                fontSize: fontSize ?? 17.sp,
-                                fontWeight: fontWeight ?? FontWeight.w600,
+                                        ? AppColors.black
+                                        : textColor,
                               ),
                             ),
                             const SizedBox()
@@ -155,16 +154,15 @@ class CustomButton extends StatelessWidget {
                               vertical: 15.h,
                             ),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SvgPicture.asset(
                                   svgIcon ?? SvgManager.logo,
                                   width: 25.w,
                                   height: 25.h,
                                 ),
-                                title == '' ? 0.x : 10.x,
-                                Text(
-                                  title ?? '',
+                                CustomText(
+                                  text: title ?? '',
                                   style: AppTextTheme.textTheme.headlineLarge
                                       ?.copyWith(
                                     color: isBorder == true
@@ -174,6 +172,7 @@ class CustomButton extends StatelessWidget {
                                             : textColor,
                                   ),
                                 ),
+                                title == '' ? 0.x : 10.x,
                               ],
                             ),
                           )
@@ -188,10 +187,10 @@ class CustomButton extends StatelessWidget {
                                 style: AppTextTheme.textTheme.headlineLarge
                                     ?.copyWith(
                                   color: isBorder == true
-                                      ? AppColors.primary
+                                      ? AppColors.white
                                       : isSoft == true
-                                          ? textColor ?? AppColors.primary
-                                          : textColor ?? AppColors.black,
+                                          ? AppColors.black
+                                          : textColor,
                                 ),
                               ),
                             ),
