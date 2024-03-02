@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ftx_music/modules/auth/register/create_password_page.dart';
+
 import '../modules/auth/auth.dart';
 import '../modules/splash/splash_page.dart';
 import 'route_name.dart';
@@ -8,7 +10,8 @@ class AppRoutes {
     final generatedRoutes = <String, Widget>{
       RouteName.splash: const SplashPage(),
       RouteName.authMethod: const AuthMethodPage(),
-      // RouteName.register: const RegisterPage(),
+      RouteName.emailPage: const EnterEmailPage(),
+      RouteName.passwordPage: const CreatePasswordPage(),
       // RouteName.login: const LoginPage(),
       // RouteName.forgetPass: const ForgotPassPage(),
       // RouteName.linkChecked: const LinkSendPage(),

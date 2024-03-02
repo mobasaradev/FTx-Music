@@ -35,13 +35,13 @@ class AppTextTheme {
       fontFamily: 'AvenirNext',
       color: AppColors.white,
       fontSize: 10.sp,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w600,
     ),
     headlineSmall: TextStyle(
       fontFamily: 'AvenirNext',
       color: AppColors.white,
       fontSize: 8.sp,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w600,
     ),
     // bodyLarge: TextStyle(
     //   fontFamily: 'AvenirNext',

@@ -38,7 +38,7 @@ class AuthMethodPage extends StatelessWidget {
               borderRadius: 45.r,
               backgroundColor: AppColors.primary,
               textColor: AppColors.black,
-              onTap: () => Navigator.pushNamed(context, RouteName.register),
+              onTap: () => Navigator.pushNamed(context, RouteName.emailPage),
             ),
             20.y,
             CustomButton(
@@ -48,7 +48,7 @@ class AuthMethodPage extends StatelessWidget {
               borderRadius: 45.r,
               isBorder: true,
               borderColor: AppColors.white,
-              onTap: () => Navigator.pushNamed(context, RouteName.register),
+              onTap: () => Navigator.pushNamed(context, RouteName.emailPage),
             ),
             20.y,
             CustomButton(
@@ -58,7 +58,7 @@ class AuthMethodPage extends StatelessWidget {
               borderRadius: 45.r,
               isBorder: true,
               borderColor: AppColors.white,
-              onTap: () => Navigator.pushNamed(context, RouteName.register),
+              onTap: () => Navigator.pushNamed(context, RouteName.emailPage),
             ),
             20.y,
             CustomButton(
@@ -68,13 +68,13 @@ class AuthMethodPage extends StatelessWidget {
               borderRadius: 45.r,
               isBorder: true,
               borderColor: AppColors.white,
-              onTap: () => Navigator.pushNamed(context, RouteName.register),
+              onTap: () => Navigator.pushNamed(context, RouteName.emailPage),
             ),
             20.y,
             CustomButton(
               title: 'Log in',
               textColor: AppColors.white,
-              onTap: () => Navigator.pushNamed(context, RouteName.register),
+              onTap: () => Navigator.pushNamed(context, RouteName.emailPage),
             ),
             20.y,
           ],
